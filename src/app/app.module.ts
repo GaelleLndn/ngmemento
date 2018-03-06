@@ -1,21 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AngularFireModule, FirebaseAppConfig } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 
-// CUSTOM COMPONENTS
-import { AppComponent } from './app.component';
-import { QuotesComponent } from './quotes/quotes.component';
-
+// FIREBASE
+import { AngularFireModule, FirebaseAppConfig } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 // SERVICES
 import { QuotesService } from './services/quotes.service';
 import { CreateQuoteComponent } from './create-quote/create-quote.component';
 import { QuoteDetailsComponent } from './quote-details/quote-details.component';
+
+// CUSTOM COMPONENTS
+import { AppComponent } from './app.component';
+import { QuotesComponent } from './quotes/quotes.component';
+import { BackendHomeComponent } from './backend/backend-home/backend-home.component';
+import { BackendQuotesComponent } from './backend/backend-quotes/backend-quotes.component';
+
+
 
 const CONFIG: FirebaseAppConfig = {
   apiKey: 'AIzaSyBsPPjBmyWppMD3pFb4UnA2Q79hpQCDjCE',
@@ -29,7 +33,7 @@ const CONFIG: FirebaseAppConfig = {
 const ROUTES: Routes = [
   { path : '', pathMatch: 'full', component: QuotesComponent },
   { path: 'quote/:id', component: QuoteDetailsComponent },
-  { path: 'admin', component: CreateQuoteComponent }
+  { path: 'admin', component: BackendHomeComponent }
 ];
 
 @NgModule({
@@ -37,7 +41,9 @@ const ROUTES: Routes = [
     AppComponent,
     QuotesComponent,
     CreateQuoteComponent,
-    QuoteDetailsComponent
+    QuoteDetailsComponent,
+    BackendHomeComponent,
+    BackendQuotesComponent
   ],
   imports: [
     BrowserModule,

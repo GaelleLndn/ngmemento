@@ -6,9 +6,9 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './quote-details.component.html',
   styleUrls: ['./quote-details.component.css']
 })
+
 export class QuoteDetailsComponent implements OnInit {
   quoteId;
-
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
